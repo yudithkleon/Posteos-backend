@@ -44,7 +44,7 @@ public class Posteo {
 
     /*Parte 3 relaciones porque el posteo depende del autor*/
     /*Evitar el error infinito @JsonIgnore*/
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="author_id", nullable = false)
     private Author author;
 
