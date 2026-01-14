@@ -30,6 +30,14 @@ public class CommentService {
         return commentRepository.save(comment);
     }
 
+    public Comment actualizar(Long id, Comment commentActualizado) {
+        Comment comment = commentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Comentario no encontrado"));
+
+        comment.setText(commentActualizado.getText());
+        return commentRepository.save(comment);
+    }
+
     public void eliminar(Long id) {
         commentRepository.deleteById(id);
     }

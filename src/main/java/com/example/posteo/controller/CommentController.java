@@ -29,6 +29,14 @@ public class CommentController {
         return commentService.crear(posteoId, comment);
     }
 
+    @PutMapping("/{id}")
+    public Comment actualizarComentario(
+            @PathVariable Long id,
+            @Valid @RequestBody Comment comment
+    ) {
+        return commentService.actualizar(id, comment);
+    }
+
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable Long id) {
         commentService.eliminar(id);
